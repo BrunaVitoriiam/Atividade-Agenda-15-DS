@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CadastroEventos.Models"
+             x:Class="CadastroEventos.Views.CadastroEventoPage"
+             x:DataType="models:Evento"
+             Title="Novo evento"
+             BackgroundColor="#F5F1E8">
+
+    <NavigationPage.TitleView>
+        <Grid HorizontalOptions="Fill" VerticalOptions="Center">
+            <Label Text="Novo evento"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="#C6A15B" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,28,24,36" Spacing="20">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Cadastro de evento"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#252525" />
+                <Label Text="Informe os dados para organizar seu próximo encontro."
+                       FontSize="14"
+                       TextColor="#5F5B54" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="#14243A"
+                    Stroke="#C6A15B"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="INFORMAÇÕES DO EVENTO"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           TextColor="#C6A15B"
+                           CharacterSpacing="1.2" />
+
+                    <VerticalStackLayout Spacing="7">
+                        <Label Text="Nome do evento" TextColor="White" FontSize="13" />
+                        <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="12,0">
+                            <Entry Text="{Binding NomeEvento, Mode=TwoWay}"
+                                   Placeholder="Ex.: Congresso de Tecnologia"
+                                   PlaceholderColor="#AEB9C7"
+                                   TextColor="White"
+                                   BackgroundColor="Transparent"
+                                   ClearButtonVisibility="WhileEditing"
+                                   ReturnType="Next" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <VerticalStackLayout Grid.Column="0" Spacing="7">
+                            <Label Text="Data de início" TextColor="White" FontSize="13" />
+                            <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="8,0">
+                                <DatePicker Date="{Binding DataInicio, Mode=TwoWay}"
+                                            Format="dd/MM/yyyy"
+                                            TextColor="White"
+                                            BackgroundColor="Transparent" />
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="7">
+                            <Label Text="Data de término" TextColor="White" FontSize="13" />
+                            <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="8,0">
+                                <DatePicker Date="{Binding DataTermino, Mode=TwoWay}"
+                                            Format="dd/MM/yyyy"
+                                            TextColor="White"
+                                            BackgroundColor="Transparent" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="7">
+                        <Label Text="Número de participantes" TextColor="White" FontSize="13" />
+                        <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="12,0">
+                            <Entry Text="{Binding NumeroParticipantesTexto, Mode=TwoWay}"
+                                   Placeholder="Ex.: 100"
+                                   PlaceholderColor="#AEB9C7"
+                                   TextColor="White"
+                                   BackgroundColor="Transparent"
+                                   Keyboard="Numeric"
+                                   ReturnType="Next" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="7">
+                        <Label Text="Local do evento" TextColor="White" FontSize="13" />
+                        <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="12,0">
+                            <Entry Text="{Binding LocalEvento, Mode=TwoWay}"
+                                   Placeholder="Cidade ou endereço"
+                                   PlaceholderColor="#AEB9C7"
+                                   TextColor="White"
+                                   BackgroundColor="Transparent"
+                                   ClearButtonVisibility="WhileEditing"
+                                   ReturnType="Next" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="7">
+                        <Label Text="Custo por participante (R$)" TextColor="White" FontSize="13" />
+                        <Border BackgroundColor="#20344F" Stroke="#41536B" StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="12,0">
+                            <Entry Text="{Binding CustoPorParticipanteTexto, Mode=TwoWay}"
+                                   Placeholder="Ex.: 150,00"
+                                   PlaceholderColor="#AEB9C7"
+                                   TextColor="White"
+                                   BackgroundColor="Transparent"
+                                   Keyboard="Numeric"
+                                   ReturnType="Done" />
+                        </Border>
+                        <Label Text="Use vírgula para informar os centavos."
+                               FontSize="11"
+                               TextColor="#B7C1CE" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="CADASTRAR EVENTO"
+                    Clicked="OnCadastrarEventoClicked"
+                    BackgroundColor="#14243A"
+                    TextColor="#C6A15B"
+                    BorderColor="#C6A15B"
+                    BorderWidth="1"
+                    CornerRadius="12"
+                    HeightRequest="54"
+                    FontAttributes="Bold"
+                    CharacterSpacing="1" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

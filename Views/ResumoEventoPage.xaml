@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CadastroEventos.Models"
+             x:Class="CadastroEventos.Views.ResumoEventoPage"
+             x:DataType="models:Evento"
+             Title="Resumo do evento"
+             BackgroundColor="#F5F1E8">
+
+    <NavigationPage.TitleView>
+        <Grid HorizontalOptions="Fill" VerticalOptions="Center">
+            <Label Text="Resumo do evento"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="#C6A15B" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,28,24,36" Spacing="20">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Resumo do evento"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#252525" />
+                <Label Text="Confira os dados e a previsão de investimento."
+                       FontSize="14"
+                       TextColor="#5F5B54" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="#14243A"
+                    Stroke="#C6A15B"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="DADOS CADASTRADOS"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           TextColor="#C6A15B"
+                           CharacterSpacing="1.2" />
+
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Evento" FontSize="12" TextColor="#C6A15B" />
+                        <Label Text="{Binding NomeEvento}" FontSize="18" FontAttributes="Bold" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1" Color="#40516A" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Início" FontSize="12" TextColor="#C6A15B" />
+                            <Label Text="{Binding DataInicioFormatada}" FontSize="15" TextColor="White" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Término" FontSize="12" TextColor="#C6A15B" />
+                            <Label Text="{Binding DataTerminoFormatada}" FontSize="15" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Duração" FontSize="12" TextColor="#C6A15B" />
+                            <Label Text="{Binding DuracaoEmDias, StringFormat='{0} dias'}" FontSize="15" TextColor="White" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Participantes" FontSize="12" TextColor="#C6A15B" />
+                            <Label Text="{Binding NumeroParticipantes}" FontSize="15" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Local" FontSize="12" TextColor="#C6A15B" />
+                        <Label Text="{Binding LocalEvento}" FontSize="15" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Custo por participante" FontSize="12" TextColor="#C6A15B" />
+                            <Label Text="{Binding CustoPorParticipanteFormatado}" FontSize="15" TextColor="White" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Border BackgroundColor="#20344F"
+                            Stroke="#C6A15B"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="16,14">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="CUSTO TOTAL DO EVENTO"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#C6A15B"
+                                   CharacterSpacing="1" />
+                            <Label Text="{Binding CustoTotalFormatado}"
+                                   FontSize="28"
+                                   FontAttributes="Bold"
+                                   TextColor="White" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="VOLTAR AO CADASTRO"
+                    Clicked="OnVoltarCadastroClicked"
+                    BackgroundColor="#14243A"
+                    TextColor="#C6A15B"
+                    BorderColor="#C6A15B"
+                    BorderWidth="1"
+                    CornerRadius="12"
+                    HeightRequest="54"
+                    FontAttributes="Bold"
+                    CharacterSpacing="1" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
