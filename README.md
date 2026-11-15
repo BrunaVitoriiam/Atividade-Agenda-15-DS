@@ -12,7 +12,7 @@ Aplicativo .NET MAUI da Agenda 15 de Desenvolvimento de Sistemas II para cadastr
 
 ## Executar no Windows
 
-Requisitos: .NET 10 SDK, workload .NET MAUI e Windows 10 versão 1809 (build 17763) ou posterior.
+Requisitos: .NET 10 SDK, workload .NET MAUI e Windows 10 versão  (build 17763) ou posterior.
 
 No PowerShell, na pasta do projeto:
 
