@@ -18,8 +18,6 @@ No PowerShell, na pasta do projeto:
 
 ```powershell
 dotnet workload install maui
-dotnet build -f net10.0-windows10.0.19041.0
-dotnet run -f net10.0-windows10.0.19041.0
 ```
 
 O aplicativo é configurado como Windows não empacotado para execução local. Para compilar outro destino, use o target framework correspondente disponível no ambiente, por exemplo `net10.0-android` em um ambiente Android configurado.
